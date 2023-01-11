@@ -9,7 +9,7 @@ export default function HeroBanner() {
     console.log(chalk.bold.red(figText));
     //Delay for 5 seconds 
     const initTime = Date.now();
-    //Get the current time and subtract the initTime once its over 5000 (then end delay)
+    //Get the current time and subtract the initTime once its over 5000ms (then end delay)
     while ( (Date.now() - initTime) < 5000) {
         //Waste clock cycles
     }
