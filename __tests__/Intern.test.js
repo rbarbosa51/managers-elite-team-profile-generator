@@ -1,4 +1,5 @@
 import Intern from "../lib/Intern";
+
 describe('Inter Class', () => {
     //name, id, email, school)
     const TestIntern = new Intern('Rafael', '1', 'rafael@gmail.com', 'University of Texas');

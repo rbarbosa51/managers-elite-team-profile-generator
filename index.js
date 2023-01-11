@@ -1,6 +1,7 @@
 import HeroBanner from "./src/HeroBanner.js";
 import ClearScreen from "./src/ClearScreen.js";
 import inquirer from "inquirer";
+import chalk from "chalk";
 import Manager from "./lib/Manager.js";
 
 //Global 
@@ -19,31 +20,31 @@ async function main() {
     await inquirer.prompt([{name: 'pause', message: "Press Enter to continue"}]).then(() => ClearScreen());
     
     //Enter the team managers name, employee ID, email address, and office number
-    let name, id, email, office
+    //Then store the answers in the instance of the Manager class
     await inquirer.prompt([
         {
             name: 'managerName',
-            message: 'What is the manager name?'
+            message: `What is the Manager's ${chalk.bold.red('name')} ?}`
         },
         {
             name: 'managerId',
-            message: 'Please enter an ID for the manager'
+            message: `What is the Manager's ${chalk.bold.red('ID')} ?}`
         },
         {
             name: 'managerEmail',
-            message: 'What is the manager\'s email address?'
+            message: `What is the Manager's ${chalk.bold.red('Email')} address?`
         },
         {
             name: 'officeNumber',
-            message: 'What is the managers office number?'
+            message: `What is the Manager's ${chalk.bold.red('Office Number')} ?`
         }
     ]).then( (answers) => {
         //name, id, email, officeNumber
         teamManager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.officeNumber);
     })
-    
+    //console.log(teamManager);
     //Enter main loop  Enter Intern, Engineer or exit
-
+    
     //Generate html
 
 
