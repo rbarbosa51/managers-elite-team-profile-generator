@@ -3,6 +3,8 @@ import ClearScreen from "./src/ClearScreen.js";
 import inquirer from "inquirer";
 import Manager from "./lib/Manager.js";
 
+//Global 
+let teamManager;
 async function main() {
     //Main Title shows up
     //Clear the Screen First
@@ -18,7 +20,7 @@ async function main() {
     
     //Enter the team managers name, employee ID, email address, and office number
     let name, id, email, office
-    inquirer.prompt([
+    await inquirer.prompt([
         {
             name: 'managerName',
             message: 'What is the manager name?'
@@ -28,12 +30,18 @@ async function main() {
             message: 'Please enter an ID for the manager'
         },
         {
+            name: 'managerEmail',
+            message: 'What is the manager\'s email address?'
+        },
+        {
             name: 'officeNumber',
             message: 'What is the managers office number?'
         }
     ]).then( (answers) => {
-        console.log(`${answers.managerName}`);
+        //name, id, email, officeNumber
+        teamManager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.officeNumber);
     })
+    
     //Enter main loop  Enter Intern, Engineer or exit
 
     //Generate html

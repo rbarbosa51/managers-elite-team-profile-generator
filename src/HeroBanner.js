@@ -11,7 +11,7 @@ export default function HeroBanner() {
     const initTime = Date.now();
     //Get the current time and subtract the initTime once its over 5000ms (then end delay)
     while ( (Date.now() - initTime) < 5000) {
-        //Waste clock cycles
+        //Waste clock cycles (5 seconds)
     }
     
 }
