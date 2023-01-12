@@ -4,7 +4,8 @@ import inquirer from "inquirer";
 import chalk from "chalk";
 import Manager from "./lib/Manager.js";
 import CreateIntern from './src/CreateIntern.js'
-import Intern from "./lib/Intern.js";
+import CreateEngineer from './src/CreateEngineer.js';
+//import Intern from "./lib/Intern.js";
 
 //Global 
 //Employees vaiable will hold all of the created employees
@@ -79,6 +80,13 @@ async function main() {
             case 1:
                 let intern = await CreateIntern();
                 employees.push(intern);
+                break;
+            case 2:
+                let engineer = await CreateEngineer()
+                employees.push(engineer);
+                break;
+            default:
+                break;
         }
     }
     //Debugging
