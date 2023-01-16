@@ -4,33 +4,35 @@ import fs from 'fs';
 let cardsPlaceholder = '';
 
 function makeCard(employee) {
-    let field, label;
+    let field, label, iconName;
     switch (employee.getRole()) {
         case 'Manager':
             field = employee.officeNumber;
             label = 'Office Number:';
+            iconName = 'mug.svg';
             break;
         case 'Engineer':
-            field = employee.getGitHub();
+            field = `<a href='${employee.getGitHub()}'>${employee.getGitHub()}</a>`;
             label = 'GitHub:';
+            iconName = 'glasses.svg';
             break;
         case 'Intern':
             field = employee.getSchool();
             label = 'School:';
+            iconName = 'graduate.svg';
             break;
     }
     return `
         <div class="employeeCard">
         <div class="cardTitle">
             <div id="name">${employee.name}</div>
-            <div id="role"><img class="whiteFill" src="mug.svg" height="18em">${employee.getRole()}</div>
+            <div id="role"><img class="whiteFill" src="./icons/${iconName}" height="18em">${employee.getRole()}</div>
         </div>
         <div class="cardContent">
             <p class="data">ID: ${employee.id}</p>
-            <p class="data">Email:</p>
-            <p class="data"><a href="mailto:${employee.email}">${employee.email}</a></p>
-            <p class="data">${label}</p>
-            <p class="data">${field}</p>
+            <p class="data">Email:
+            <a href="mailto:${employee.email}">${employee.email}</a></p>
+            <p class="data">${label} ${field}</p>
         </div>
     </div>
     `;
@@ -60,12 +62,18 @@ function createHTMLDocument(cards) {
 }
 
 export default function generateHTML(employees) {
-    //console.log('Inside GenerateHTML');
     employees.forEach(emp => {
-        console.log(emp.getRole());
         cardsPlaceholder += makeCard(emp);
     });
     const document = createHTMLDocument(cardsPlaceholder);
-    console.log(document);
+    try {
+        fs.writeFile('./dist/index.html', document, err => {
+            console.log(err);
+        });
+        console.log('Success! HTML File was written.\nSee dist folder and the index.html file');
+    } catch (err) {
+        console.log('Failure:' + err);
+    }
+    
     return;
 }

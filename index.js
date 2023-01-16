@@ -7,6 +7,7 @@ import CreateIntern from './src/CreateIntern.js'
 import CreateEngineer from './src/CreateEngineer.js';
 import {exec} from 'child_process';
 import GenerateHTML from "./src/GenerateHTML.js";
+import { stdout } from "process";
 
 //Global 
 //Employees vaiable will hold all of the created employees
@@ -95,17 +96,19 @@ async function main() {
     //Generate html
     GenerateHTML(employees);
     //Open the Html File
-    // exec("ls -la", (error, stdout, stderr) => {
-    //     if (error) {
-    //         console.log(`error: ${error.message}`);
-    //         return;
-    //     }
-    //     if (stderr) {
-    //         console.log(`stderr: ${stderr}`);
-    //         return;
-    //     }
-    //     console.log(`stdout: ${stdout}`);
-    // });
+    
+
+    exec("open ./dist/index.html", (error, stdout, stderr) => {
+        if (error) {
+            console.log(`error: ${error.message}`);
+            return;
+        }
+        if (stderr) {
+            console.log(`stderr: ${stderr}`);
+            return;
+        }
+        console.log(`stdout: ${stdout}`);
+    });
 
 }
 main();

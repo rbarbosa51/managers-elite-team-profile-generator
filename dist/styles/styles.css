@@ -51,7 +51,8 @@ main {
     display: flex;
     flex-flow: column nowrap;
     min-height: 40vh;
-    min-width: 15vw
+    min-width: 15vw;
+    margin-bottom: 2em;
 }
 .cardTitle {
     height: 30%;
@@ -80,6 +81,10 @@ main {
     border: 1px solid rgba(128, 128, 128, 0.392);
     margin: 0 auto;
     padding: 0 0 0 1em;
+    font-size: 0.8em;
+}
+img {
+    margin-right: 0.5em;
 }
 .whiteFill{
     /* The free tier of fontawesome only provides black backgrounds, 
