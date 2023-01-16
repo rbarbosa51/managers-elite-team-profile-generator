@@ -1,94 +1,91 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Nunito Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
 }
 :root {
-    --navColor: #E84756;
-    --navDark: rgba(0, 0, 0, 0.5);
-    --navLight: rgba(253, 253, 253, 0.3);
-    --cardBlue: rgb(27, 89, 248);
-    --lightBlue:rgb(224,237,255);
-    --white: rgb(255,255,255);
-    --border-radius: 10px;
+  --navColor: #e84756;
+  --navDark: rgba(0, 0, 0, 0.5);
+  --navLight: rgba(253, 253, 253, 0.3);
+  --cardBlue: rgb(27, 89, 248);
+  --lightBlue: rgb(224, 237, 255);
+  --white: rgb(255, 255, 255);
+  --border-radius: 10px;
 }
 body {
-    padding: 0 2.5%;
-    min-height: 100vh;
-    background-color: var(--lightBlue);
+  padding: 0 2.5%;
+  min-height: 100vh;
+  background-color: var(--lightBlue);
 }
 nav {
-    background-color: var(--navColor);
-    height: 15vh;
-    display: flex;
-    padding-right: 15px;
-    justify-content: right;
-    align-items: flex-end;
-    border-radius: var(--border-radius);
+  background-color: var(--navColor);
+  height: 15vh;
+  display: flex;
+  padding-right: 15px;
+  justify-content: right;
+  align-items: flex-end;
+  border-radius: var(--border-radius);
 }
 h1 {
-    font-size: 4em;
-    font-weight: 800;
-    color: var(--navColor);
-    text-shadow: 5px 5px 6px var(--navDark),
-                -5px -5px 6px var(--navLight);
+  font-size: 4em;
+  font-weight: 800;
+  color: var(--navColor);
+  text-shadow: 5px 5px 6px var(--navDark), -5px -5px 6px var(--navLight);
 }
 main {
-    display: flex;
-    justify-content: space-evenly;
-    flex-flow: row wrap;
-    margin-top: 3em;
-    height: 100%;
-    background-color: var(--lightBlue);
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  margin-top: 3em;
+  height: 100%;
+  background-color: var(--lightBlue);
 }
 .employeeCard {
-    box-shadow: 5px 5px 5px var(--navDark),
-                -5px -5px 5px rgba(253, 253, 253, 1);
-    /* box-shadow: -5px -5px 5px var(--navLight); */
-    border-radius: var(--border-radius);
-    display: flex;
-    flex-flow: column nowrap;
-    min-height: 40vh;
-    min-width: 15vw;
-    margin-bottom: 2em;
+  box-shadow: 5px 5px 5px var(--navDark), -5px -5px 5px rgba(253, 253, 253, 1);
+  /* box-shadow: -5px -5px 5px var(--navLight); */
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 40vh;
+  min-width: 15vw;
+  margin-bottom: 2em;
 }
 .cardTitle {
-    height: 30%;
-    background-color: var(--cardBlue);
-    padding: 10px;
-    text-align: center;
-    border-top-left-radius: var(--border-radius);
-    border-top-right-radius: var(--border-radius);
+  height: 30%;
+  background-color: var(--cardBlue);
+  padding: 10px;
+  text-align: center;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
 }
 .cardTitle div {
-    color: var(--white);
-    font-size: 1.2em;
-    
+  color: var(--white);
+  font-size: 1.2em;
 }
-.cardContent  {
-    height: 100%;
-    width: 20vw;
-    background-color: var(--lightBlue);
-    padding: 10%;
-    border-bottom-left-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
+.cardContent {
+  height: 100%;
+  width: 20vw;
+  background-color: var(--lightBlue);
+  padding: 10%;
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
 }
 .data {
-    background-color: var(--white);
-    width: 97.5%;
-    border: 1px solid rgba(128, 128, 128, 0.392);
-    margin: 0 auto;
-    padding: 0 0 0 1em;
-    font-size: 0.8em;
+  background-color: var(--white);
+  width: 97.5%;
+  border: 1px solid rgba(128, 128, 128, 0.392);
+  margin: 0 auto;
+  padding: 0 0 0 1em;
+  font-size: 0.8em;
 }
 img {
-    margin-right: 0.5em;
+  margin-right: 0.5em;
 }
-.whiteFill{
-    /* The free tier of fontawesome only provides black backgrounds, 
+.whiteFill {
+  /* The free tier of fontawesome only provides black backgrounds, 
     I downloaded and renamed the icons, but still need to change to white as per the instructions.
     Instead of changing the color in a vector editing software, i deemed it more useful to use the CSS filter */
-    filter: invert(1);
+  filter: invert(1);
 }

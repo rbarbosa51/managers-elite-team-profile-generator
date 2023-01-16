@@ -1,28 +1,28 @@
 //import { Employee } from "../lib/Employee.js";
-import fs from 'fs';
+import fs from "fs";
 //Global
-let cardsPlaceholder = '';
+let cardsPlaceholder = "";
 
 function makeCard(employee) {
-    let field, label, iconName;
-    switch (employee.getRole()) {
-        case 'Manager':
-            field = employee.officeNumber;
-            label = 'Office Number:';
-            iconName = 'mug.svg';
-            break;
-        case 'Engineer':
-            field = `<a href='${employee.getGitHub()}'>${employee.getGitHub()}</a>`;
-            label = 'GitHub:';
-            iconName = 'glasses.svg';
-            break;
-        case 'Intern':
-            field = employee.getSchool();
-            label = 'School:';
-            iconName = 'graduate.svg';
-            break;
-    }
-    return `
+  let field, label, iconName;
+  switch (employee.getRole()) {
+    case "Manager":
+      field = employee.officeNumber;
+      label = "Office Number:";
+      iconName = "mug.svg";
+      break;
+    case "Engineer":
+      field = `<a href='${employee.getGitHub()}'>${employee.getGitHub()}</a>`;
+      label = "GitHub:";
+      iconName = "glasses.svg";
+      break;
+    case "Intern":
+      field = employee.getSchool();
+      label = "School:";
+      iconName = "graduate.svg";
+      break;
+  }
+  return `
         <div class="employeeCard">
         <div class="cardTitle">
             <div id="name">${employee.name}</div>
@@ -39,7 +39,7 @@ function makeCard(employee) {
 }
 
 function createHTMLDocument(cards) {
-    return `
+  return `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -58,22 +58,24 @@ function createHTMLDocument(cards) {
         </main>
     </body>
     </html>
-    `
+    `;
 }
 
 export default function generateHTML(employees) {
-    employees.forEach(emp => {
-        cardsPlaceholder += makeCard(emp);
+  employees.forEach((emp) => {
+    cardsPlaceholder += makeCard(emp);
+  });
+  const document = createHTMLDocument(cardsPlaceholder);
+  try {
+    fs.writeFile("./dist/index.html", document, (err) => {
+      console.log(err);
     });
-    const document = createHTMLDocument(cardsPlaceholder);
-    try {
-        fs.writeFile('./dist/index.html', document, err => {
-            console.log(err);
-        });
-        console.log('Success! HTML File was written.\nSee dist folder and the index.html file');
-    } catch (err) {
-        console.log('Failure:' + err);
-    }
-    
-    return;
+    console.log(
+      "Success! HTML File was written.\nSee dist folder and the index.html file"
+    );
+  } catch (err) {
+    console.log("Failure:" + err);
+  }
+
+  return;
 }
