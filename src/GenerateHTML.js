@@ -1,4 +1,3 @@
-//import { Employee } from "../lib/Employee.js";
 import fs from "fs";
 //Global
 let cardsPlaceholder = "";

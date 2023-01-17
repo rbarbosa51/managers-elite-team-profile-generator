@@ -119,6 +119,8 @@ async function main() {
   GenerateHTML(employees);
   //Open the Html File
 
+  //Used for debugging -> Opens the file in default browser (OS X) 
+  //does not work in windows. It was used to record the HTML output on video
   exec("open ./dist/index.html", (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.message}`);
